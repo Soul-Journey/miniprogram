@@ -1,0 +1,112 @@
+.elder-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFF9F5;
+}
+
+.ai-header {
+  padding: 40rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.03);
+
+  .avatar-wrapper {
+    position: relative;
+    .ai-avatar { font-size: 80rpx; }
+    .ai-status-dot {
+      position: absolute; bottom: 0; right: 0;
+      width: 20rpx; height: 20rpx; background: #4CAF50;
+      border: 4rpx solid #fff; border-radius: 50%;
+    }
+  }
+
+  .ai-bubble {
+    margin-left: 30rpx;
+    background: #F0F2F5;
+    padding: 24rpx 32rpx;
+    border-radius: 40rpx;
+    .guide-text { font-size: 36rpx; color: #333; font-weight: 500; }
+  }
+}
+
+.history-scroll {
+  flex: 1;
+  padding: 30rpx;
+  box-sizing: border-box;
+
+  .memory-card {
+    background: #fff;
+    border-radius: 24rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+
+    .time-tag { font-size: 24rpx; color: #999; margin-bottom: 10rpx; }
+    .content-text { font-size: 40rpx; color: #333; line-height: 1.6; }
+  }
+}
+
+.control-area {
+  position: relative; // 新增：为了让预览按钮绝对定位
+  padding: 80rpx 0 80rpx; // 增加顶部间距
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 60rpx 60rpx 0 0;
+  box-shadow: 0 -10rpx 40rpx rgba(0,0,0,0.05);
+
+  // 新增：预览按钮样式
+  .preview-entry {
+    position: absolute;
+    right: 40rpx;
+    top: -40rpx; // 向上偏移，半悬浮效果
+    background: #fff;
+    padding: 20rpx 36rpx;
+    border-radius: 100rpx;
+    border: 3rpx solid #FF9A9E; 
+    box-shadow: 0 10rpx 20rpx rgba(255,154,158,0.2);
+    z-index: 100;
+    
+    text {
+      font-size: 32rpx;
+      color: #FF9A9E;
+      font-weight: bold;
+    }
+  }
+
+  // 新增：点击反馈效果
+  .btn-hover {
+    transform: scale(0.95);
+    background-color: #FFF5F5;
+  }
+
+  .hint-text { font-size: 32rpx; color: #666; margin-bottom: 30rpx; }
+
+  .record-trigger {
+    width: 200rpx; height: 200rpx;
+    background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 100%);
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 10rpx 30rpx rgba(255,154,158,0.5);
+    transition: all 0.2s;
+
+    .inner-icon { font-size: 90rpx; }
+
+    &.active { transform: scale(0.9); background: #FF6B6B; }
+  }
+}
+
+.recording-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  padding: 40rpx; color: #FF9A9E; font-size: 34rpx;
+  .pulse-ring {
+    width: 20rpx; height: 20rpx; background: #FF9A9E;
+    border-radius: 50%; margin-right: 20rpx;
+    animation: pulse 1s infinite;
+  }
+}
+
+@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2.5); opacity: 0; } }

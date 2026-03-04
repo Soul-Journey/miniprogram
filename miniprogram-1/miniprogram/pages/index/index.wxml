@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="header">
+    <text class="brand-name">忆本正经</text>
+    <text class="slogan">不正经的时光，忆本正经留住</text>
+  </view>
+
+  <view class="entry-cards">
+    <view class="card elder-card" bindtap="navToElder">
+      <view class="card-content">
+        <text class="card-title">忆长辈 · 温暖版</text>
+        <text class="card-desc">说说话，就把一生写成书</text>
+        <view class="tag">AI 语音访谈 | 出版级生成</view>
+      </view>
+      <view class="icon-box">👴</view>
+    </view>
+
+    <view class="card youth-card" bindtap="navToYouth">
+      <view class="card-content">
+        <text class="card-title">正青春 · 沙雕版</text>
+        <text class="card-desc">青春不摆烂，忆本正经干</text>
+        <view class="tag">沙雕文案 | 毕业纪念册</view>
+      </view>
+      <view class="icon-box">🎓</view>
+    </view>
+  </view>
+
+  <view class="footer">
+    <text>© 2026 忆本正经 AI 回忆录</text>
+  </view>
+</view>

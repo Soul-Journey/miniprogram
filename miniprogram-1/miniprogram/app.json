@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/elder/index",
+    "pages/youth/index",
+    "pages/book/index"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "忆本正经",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#FF9A9E",
+    "list": [
+      {
+        "pagePath": "pages/elder/index",
+        "text": "回忆记录"
+      }
+    ]
+  }
+}
