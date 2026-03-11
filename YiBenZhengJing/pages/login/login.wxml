@@ -1,0 +1,25 @@
+<view class="login-container">
+  <view class="bg-section">
+    <view class="brand-text">
+      <view class="quote">岁月不居，时节如流。</view>
+      <view class="brand-name">忆本正经</view>
+      <view class="brand-desc">国内首款双赛道 AI 回忆录生成工具</view>
+    </view>
+  </view>
+  <view class="auth-card">
+    <view class="card-header">
+      <text class="card-title">欢迎开启回忆之旅</text>
+      <text class="card-subtitle">为长辈留住岁月，为青春留下纪念</text>
+    </view>
+    <button class="wechat-btn" bindtap="handleWechatLogin" loading="{{isLoading}}">
+      <text class="wechat-icon" wx:if="{{!isLoading}}">💬</text>
+      <text>微信一键授权登录</text>
+    </button>
+    <view class="agreement-box" bindtap="toggleAgreement">
+      <view class="checkbox {{isAgreed ? 'checked' : ''}}">
+        <text wx:if="{{isAgreed}}">✓</text>
+      </view>
+      <view class="agreement-text">我已阅读并同意<text class="link" catchtap="viewAgreement">《用户协议》</text>和<text class="link" catchtap="viewPrivacy">《隐私政策》</text></view>
+    </view>
+  </view>
+</view>

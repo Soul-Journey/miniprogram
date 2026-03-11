@@ -1,0 +1,115 @@
+page { background-color: #f7f9fc; }
+.container { padding: 60rpx 40rpx; padding-bottom: 100rpx; }
+.header { margin-bottom: 60rpx; }
+.title { font-size: 48rpx; font-weight: bold; color: #333; display: block; margin-bottom: 16rpx;}
+.subtitle { font-size: 28rpx; color: #888; }
+
+.form-group { margin-bottom: 60rpx; }
+.label { font-size: 32rpx; font-weight: bold; color: #444; margin-bottom: 24rpx; display: block; }
+
+/* 🌟 极致美化的组合输入卡片 */
+.input-card {
+  background-color: #fff;
+  border-radius: 24rpx; /* 更圆润 */
+  padding: 0 30rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.03); /* 更柔和的阴影 */
+  border: 2rpx solid #F3F4F6;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  padding: 36rpx 0; /* 增加上下间距 */
+}
+
+.border-bottom {
+  border-bottom: 2rpx solid #f3f4f6; /* 更浅的分割线 */
+}
+
+.row-label {
+  width: 160rpx; /* 稍微加宽，给“怎么称呼”留够位置 */
+  font-size: 30rpx;
+  color: #374151; /* 加深一点的文字 */
+  font-weight: 500;
+}
+
+.row-input {
+  flex: 1;
+  font-size: 30rpx;
+  color: #111827;
+}
+
+/* 输入框占位符颜色 */
+.ph-color {
+  color: #9CA3AF;
+  font-weight: normal;
+}
+
+.age-input {
+  flex: none;
+  width: 180rpx; /* 控制年龄输入框宽度 */
+  text-align: right;
+  margin-right: 16rpx;
+}
+
+.unit {
+  font-size: 30rpx;
+  color: #6B7280;
+}
+
+/* 🌟 美化性别选择按钮 */
+.gender-options {
+  display: flex;
+  flex: 1;
+  gap: 20rpx;
+}
+
+.gender-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16rpx 0;
+  border-radius: 16rpx;
+  border: 2rpx solid #E5E7EB;
+  background-color: #F9FAFB;
+  font-size: 28rpx;
+  color: #4B5563;
+  transition: all 0.2s;
+}
+
+.gender-icon {
+  margin-right: 10rpx;
+  font-size: 32rpx;
+}
+
+/* 选中男生的粉蓝色调 */
+.active-male {
+  background-color: #EFF6FF;
+  border-color: #BFDBFE;
+  color: #1D4ED8;
+  font-weight: bold;
+}
+
+/* 选中女生的粉色调 (对标你的设计图) */
+.active-female {
+  background-color: #FDF2F8;
+  border-color: #FBCFE8;
+  color: #BE185D;
+  font-weight: bold;
+}
+
+
+/* 下方目标受众卡片保持不变 */
+.card-list { display: flex; flex-direction: column; gap: 24rpx; }
+.card { background-color: #fff; padding: 30rpx; border-radius: 20rpx; display: flex; align-items: center; border: 4rpx solid transparent; transition: all 0.2s ease; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.02); }
+.card.active { border-color: #07c160; background-color: #f0fbf5; }
+.card-emoji { font-size: 64rpx; margin-right: 30rpx; }
+.card-info { display: flex; flex-direction: column; }
+.card-title { font-size: 32rpx; font-weight: bold; color: #333; margin-bottom: 8rpx; }
+.card-desc { font-size: 24rpx; color: #888; }
+
+/* 下一步按钮 */
+.next-btn { margin-top: 60rpx; background-color: #D1D5DB; color: white; border-radius: 100rpx; font-size: 34rpx; padding: 24rpx 0; width: 100% !important; transition: all 0.3s;}
+/* 只有当信息全填完时，按钮才变亮 */
+.next-btn:not(.disabled) { background-color: #07c160; box-shadow: 0 8rpx 20rpx rgba(7, 193, 96, 0.3); }

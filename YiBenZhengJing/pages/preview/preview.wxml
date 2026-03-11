@@ -1,0 +1,69 @@
+<view class="reader-bg">
+  <view class="book-container">
+    
+    <!-- 左侧逼真的书脊装订线视觉效果 -->
+    <view class="book-spine"></view>
+    
+    <view class="book-content">
+      
+      <!-- 抬头信息 (每页共用) -->
+      <view class="book-header">
+        <text class="title">《{{bookTitle}}》</text>
+        <view class="author-line">
+          <text class="author">作者：{{authorName}}</text>
+          <text class="style-tag">{{themeStyle}}</text>
+        </view>
+        <view class="divider"></view>
+      </view>
+      
+      <!-- 🌟 核心升级：Swiper 左右翻页系统 -->
+      <swiper class="book-swiper" indicator-dots="{{false}}" current="{{currentPage}}" bindchange="onPageChange" easing-function="default">
+        
+        <!-- 循环渲染每一页 (Page) -->
+        <swiper-item wx:for="{{bookPages}}" wx:key="pageIndex" class="swiper-item-page">
+          <!-- 内部采用隐藏滚动条的 scroll-view 兜底，防止极端情况下内容超长 -->
+          <scroll-view class="page-scroll" scroll-y="true" show-scrollbar="false" enhanced="true">
+            
+            <!-- 章节标题 (如果当前页有章节设定) -->
+            <view class="chapter-header" wx:if="{{item.chapterTitle}}">
+              <text class="chapter-title">{{item.chapterTitle}}</text>
+              <view class="chapter-divider"></view>
+            </view>
+            
+            <!-- 渲染该页内的具体内容块 -->
+            <block wx:for="{{item.blocks}}" wx:for-item="block" wx:for-index="bIndex" wx:key="bIndex">
+              
+              <!-- 文本渲染 (支持首字下沉) -->
+              <text wx:if="{{block.type === 'text'}}" class="paragraph {{block.isDropCap ? 'drop-cap' : ''}}">{{block.content}}</text>
+              
+              <!-- 图文相册渲染 -->
+              <view wx:if="{{block.type === 'image'}}" class="photo-frame {{bIndex % 2 === 0 ? 'rotate-left' : 'rotate-right'}}">
+                <image class="photo-img" src="{{block.url}}" mode="widthFix" lazy-load="true"></image>
+                <view class="photo-caption" wx:if="{{block.caption}}">
+                  <text class="caption-text">{{block.caption}}</text>
+                </view>
+                <view class="tape"></view>
+              </view>
+              
+            </block>
+            
+            <view class="the-end" wx:if="{{index === bookPages.length - 1}}">- 完 -</view>
+
+          </scroll-view>
+          
+          <!-- 底部页码指示器 -->
+          <view class="page-number">- {{index + 1}} -</view>
+        </swiper-item>
+
+      </swiper>
+
+      <!-- 底部商业转化锚点 (固定在最底部，不随翻页移动) -->
+      <view class="book-footer">
+        <button class="action-btn share-btn" open-type="share">分享给家人</button>
+        <button class="action-btn print-btn" bindtap="goToPrint">获取实体书</button>
+      </view>
+
+    </view>
+
+  </view>
+</view>

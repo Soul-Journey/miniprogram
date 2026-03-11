@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/explore/explore", 
+    "pages/index/index",
+    "pages/login/login",
+    "pages/onboarding/onboarding",
+    "pages/mode/mode",
+    "pages/preview/preview",
+    "pages/chat/chat",
+    "pages/pricing/pricing",
+    "pages/mine/mine"
+  ],
+  "tabBar": {
+    "color": "#a1a1aa",
+    "selectedColor": "#f59e0b",
+    "backgroundColor": "#ffffff", 
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "发现",
+        "iconPath": "assets/icons/explore.png",
+        "selectedIconPath": "assets/icons/explore-active.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "创作",
+        "iconPath": "assets/icons/create.png",
+        "selectedIconPath": "assets/icons/create-active.png"
+      },
+      {
+        "pagePath": "pages/pricing/pricing",
+        "text": "排版印刷",
+        "iconPath": "assets/icons/print.png",
+        "selectedIconPath": "assets/icons/print-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/icons/mine.png",
+        "selectedIconPath": "assets/icons/mine-active.png"
+      }
+    ]
+  }
+}

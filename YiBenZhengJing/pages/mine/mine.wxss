@@ -1,0 +1,20 @@
+page { background-color: #f4f4f5; }
+.mine-container { padding: 40rpx; }
+
+.user-header { display: flex; align-items: center; margin-bottom: 60rpx; padding: 20rpx; }
+.avatar { width: 120rpx; height: 120rpx; border-radius: 50%; background: #d4d4d8; margin-right: 30rpx; border: 4rpx solid white; box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05); }
+.nickname { font-size: 40rpx; font-weight: bold; color: #27272a; margin-bottom: 8rpx; }
+.uid { font-size: 24rpx; color: #a1a1aa; }
+
+.menu-list { background: white; border-radius: 30rpx; padding: 20rpx 0; box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02); }
+.menu-item { display: flex; align-items: center; padding: 30rpx 40rpx; }
+.menu-item:active { background: #fafafa; }
+.menu-icon { font-size: 36rpx; margin-right: 20rpx; width: 40rpx; text-align: center; }
+.menu-text { flex: 1; font-size: 30rpx; color: #3f3f46; }
+.arrow { color: #d4d4d8; font-weight: bold; }
+
+.divider { height: 2rpx; background: #f4f4f5; margin: 10rpx 40rpx; }
+
+/* 微信开放能力按钮去重置样式 */
+.contact-btn { background: transparent; padding: 0; margin: 0; line-height: inherit; font-size: inherit; color: inherit; text-align: left; display: flex; align-items: center; width: 100%; border: none; }
+.contact-btn::after { display: none; }

@@ -1,0 +1,64 @@
+<view class="page-container chat-bg-pattern">
+  
+  <!-- 🌟 新增：当前采访章节悬浮引导与结稿按钮 -->
+  <view class="chapter-guide" wx:if="{{targetAudience === 'elder'}}">
+    <view class="guide-info">
+      <text class="guide-label">当前采访 · 第{{currentChapterIndex}}章</text>
+      <text class="guide-title">{{currentChapterTitle}}</text>
+    </view>
+    <view class="finish-chapter-btn" bindtap="generateChapter">
+      本章结稿 ✍️
+    </view>
+  </view>
+
+  <scroll-view class="chat-scroll" scroll-y="true" scroll-into-view="{{scrollToId}}" scroll-with-animation="true">
+    <view class="time-stamp" wx:if="{{messages.length > 0}}">今天</view>
+
+    <!-- 聊天气泡列表 -->
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="message-row {{item.role === 'user' ? 'row-right' : 'row-left'}}">
+      <view class="avatar {{item.role === 'user' ? 'avatar-user' : 'avatar-ai'}}">
+        {{item.role === 'user' ? '我' : '🎤'}}
+      </view>
+
+      <!-- 🌟 新增：长按撤回事件 bindlongpress，并通过 data-id 传参 -->
+      <view 
+        class="bubble {{item.role === 'user' ? 'bubble-user' : 'bubble-ai'}}"
+        bindlongpress="{{item.role === 'user' ? 'recallMessage' : ''}}"
+        data-id="{{item.id}}"
+      >
+        <!-- 渲染文本 -->
+        <text wx:if="{{!item.isLoading && item.type === 'text'}}" user-select="true">{{item.content}}</text>
+        
+        <!-- 渲染图片 -->
+        <image wx:if="{{item.type === 'image'}}" src="{{item.content}}" mode="widthFix" class="chat-image"></image>
+
+        <!-- Loading 动画 -->
+        <view class="typing-indicator" wx:if="{{item.isLoading}}">
+          <view class="typing-dot"></view><view class="typing-dot"></view><view class="typing-dot"></view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 撤回提示说明 -->
+    <view class="recall-tip" wx:if="{{messages.length > 2 && targetAudience === 'elder'}}">
+      <text>💡 提示：如果说错了，可以长按自己发出的消息进行撤回删除哦</text>
+    </view>
+
+    <view class="bottom-spacer"></view>
+  </scroll-view>
+
+  <!-- 底部固定输入区 -->
+  <view class="input-area">
+    <view class="extra-btn" bindtap="chooseImage">
+      <text class="extra-icon">➕</text>
+    </view>
+
+    <view class="voice-wrapper">
+      <view class="voice-ripple {{isRecording ? 'active' : ''}}"></view>
+      <button class="record-btn {{isRecording ? 'recording' : ''}}" bindtouchstart="startRecord" bindtouchend="stopRecord" bindtouchcancel="cancelRecord">
+        <text class="btn-icon">🎙️</text>
+        <text class="btn-text">{{isRecording ? '松开 结束' : '按住 说话'}}</text>
+      </button>
+    </view>
+  </view>
+</view>

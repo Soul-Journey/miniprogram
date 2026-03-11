@@ -1,0 +1,97 @@
+<view class="page-container">
+
+  <!-- 顶部轻盈问候区 -->
+  <view class="greeting-header">
+    <view class="greeting-text">
+      <text class="title">你好，{{authorName}}</text>
+      <text class="subtitle">欢迎回到你的时光书架</text>
+    </view>
+    <view class="greeting-avatar">
+      <!-- 提取名字的第一个字作为默认头像 -->
+      <text class="default-avatar">{{authorName ? authorName[0] : '我'}}</text>
+    </view>
+  </view>
+
+  <!-- 核心操作：新建回忆录 (优雅的横向 Banner) -->
+  <view class="create-banner" bindtap="createNewBook">
+    <view class="banner-icon-wrap">
+      <view class="banner-icon">📖</view>
+      <view class="plus-badge">+</view>
+    </view>
+    <view class="banner-text">
+      <text class="banner-title">新建回忆录</text>
+      <text class="banner-desc">开启一段新的专属故事</text>
+    </view>
+    <view class="banner-arrow">></view>
+  </view>
+
+  <!-- 时光书架列表 -->
+  <view class="bookshelf-section">
+    <view class="section-header">
+      <text class="section-title">我的作品集</text>
+      <text class="section-count" wx:if="{{bookList.length > 0}}">{{bookList.length}}本</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{bookList.length === 0}}">
+      <view class="empty-icon">📭</view>
+      <text class="empty-text">书架空空如也，快去创作第一本吧~</text>
+    </view>
+
+    <!-- 书本卡片 -->
+    <view class="book-card" wx:for="{{bookList}}" wx:key="id">
+
+      <!-- 🌟 新增：删除按钮 (必须用 catchtap 阻止事件冒泡跳转) -->
+      <view class="delete-btn" catchtap="deleteBook" data-book="{{item}}">
+        <text class="trash-icon">🗑️</text> 删除
+      </view>
+      <!-- 上半部分：书本信息 -->
+      <view class="book-content" bindtap="openBook" data-book="{{item}}">
+        <view class="book-cover {{item.target === 'elder' ? 'cover-elder' : 'cover-youth'}}">
+          <text class="cover-emoji">{{item.target === 'elder' ? '👴' : '🎓'}}</text>
+        </view>
+        <view class="book-info">
+          <view class="book-title">{{item.bookName}}</view>
+          <view class="book-tags">
+            <text class="tag">{{item.style}}</text>
+          </view>
+          <view class="book-progress-wrap">
+            <view class="progress-bar">
+              <view class="progress-inner" style="width: {{item.progress}}%;"></view>
+            </view>
+            <text class="progress-text">已写 {{item.progress}}%</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 下半部分：操作面板 -->
+      <view class="book-actions">
+        <button class="btn-secondary" catchtap="previewBook" data-book="{{item}}">预览排版</button>
+        <button class="btn-primary" catchtap="openBook" data-book="{{item}}">继续创作</button>
+      </view>
+
+    </view>
+  </view>
+
+<!-- ======= 第二处：在页面最底部（</view> 之前）加入自定义弹窗 ======= -->
+  <!-- 危险操作：自定义删除确认弹窗 -->
+  <view class="custom-modal-mask" wx:if="{{showDeleteModal}}" catchtouchmove="preventTouchMove">
+    <view class="custom-modal">
+      <view class="modal-warning-icon">⚠️</view>
+      <view class="modal-title">危险操作</view>
+      <view class="modal-content">
+        您确定要将 <text class="highlight-book-name">《{{bookToDelete.bookName}}》</text> 彻底销毁吗？
+        <view class="modal-sub-content">此操作不可逆！所有的回忆、照片和进度将永久消失。</view>
+      </view>
+      <view class="modal-actions">
+        <button class="modal-btn cancel" bindtap="closeDeleteModal">我手滑了</button>
+        <button 
+          class="modal-btn confirm {{deleteCountdown === 0 ? 'active' : 'disabled'}}" 
+          bindtap="confirmDelete"
+        >
+          {{deleteCountdown > 0 ? '确认销毁 (' + deleteCountdown + 's)' : '确认销毁'}}
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+page { background-color: #f7f9fc; }
+.container { padding: 60rpx 40rpx; }
+.header { margin-bottom: 60rpx; }
+.title { font-size: 44rpx; font-weight: bold; color: #333; display: block; margin-bottom: 16rpx;}
+.subtitle { font-size: 28rpx; color: #888; }
+
+.style-list { display: flex; flex-direction: column; gap: 30rpx; margin-bottom: 80rpx; }
+
+.style-card {
+  background: #fff; border-radius: 24rpx; padding: 40rpx 30rpx;
+  display: flex; align-items: center; border: 4rpx solid transparent;
+  transition: all 0.2s; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.style-card.active { border-color: #f59e0b; background-color: #fffbeb; }
+
+.icon { font-size: 70rpx; margin-right: 30rpx; }
+.info { display: flex; flex-direction: column; flex: 1; }
+.name { font-size: 34rpx; font-weight: bold; color: #333; margin-bottom: 12rpx; }
+.desc { font-size: 26rpx; color: #666; line-height: 1.4; }
+
+.check-mark { position: absolute; right: 30rpx; width: 40rpx; height: 40rpx; background: #f59e0b; color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24rpx; font-weight: bold; }
+
+.start-btn { background: linear-gradient(90deg, #f59e0b, #ea580c); color: white; border-radius: 100rpx; font-size: 34rpx; padding: 24rpx 0; width: 100% !important; box-shadow: 0 10rpx 20rpx rgba(245, 158, 11, 0.2); }
+.start-btn.disabled { background: #d4d4d8; box-shadow: none; color: #fff;}

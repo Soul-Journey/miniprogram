@@ -1,0 +1,68 @@
+<view class="container">
+  <view class="header-banner">
+    <text class="banner-title">排版与印刷服务</text>
+    <text class="banner-sub">将数字回忆，凝结成可触摸的实体书</text>
+  </view>
+
+  <view class="pricing-list">
+    
+    <!-- 套餐 1 -->
+    <view class="pricing-card">
+      <view class="card-top">
+        <view class="tier-info">
+          <text class="tier-name">电子精排版</text>
+          <text class="tier-desc">适合家庭群内分享与手机保存</text>
+        </view>
+        <view class="price">
+          <text class="currency">¥</text><text class="amount">99</text>
+        </view>
+      </view>
+      <view class="features">
+        <view class="feature-item">✓ AI 智能纠错与精美图文混排</view>
+        <view class="feature-item">✓ 导出高清无水印 PDF 文件</view>
+        <view class="feature-item">✓ 永久云端储存与分享链接</view>
+      </view>
+      <button class="buy-btn btn-outline" bindtap="handlePay" data-tier="99">立即升级</button>
+    </view>
+
+    <!-- 套餐 2 (主推) -->
+    <view class="pricing-card recommend">
+      <view class="recommend-badge">最受欢迎</view>
+      <view class="card-top">
+        <view class="tier-info">
+          <text class="tier-name text-amber">匠心平装版</text>
+          <text class="tier-desc">送给长辈最实在的暖心礼物</text>
+        </view>
+        <view class="price text-amber">
+          <text class="currency">¥</text><text class="amount">299</text>
+        </view>
+      </view>
+      <view class="features">
+        <view class="feature-item">✓ 包含【电子精排版】全部权益</view>
+        <view class="feature-item">✓ 150g特种纸高清全彩印刷实体书1本</view>
+        <view class="feature-item">✓ 免费顺丰包邮到家</view>
+      </view>
+      <button class="buy-btn btn-primary" bindtap="handlePay" data-tier="299">购买印刷服务</button>
+    </view>
+
+    <!-- 套餐 3 -->
+    <view class="pricing-card">
+      <view class="card-top">
+        <view class="tier-info">
+          <text class="tier-name">传世精装版</text>
+          <text class="tier-desc">家族传承与纪念的顶级收藏</text>
+        </view>
+        <view class="price">
+          <text class="currency">¥</text><text class="amount">1299</text>
+        </view>
+      </view>
+      <view class="features">
+        <view class="feature-item">✓ 烫金硬质外壳 + 锁线胶装工艺</view>
+        <view class="feature-item">✓ 人工排版师1对1定制微调排版</view>
+        <view class="feature-item">✓ 附赠原声语音典藏 U盘 一个</view>
+      </view>
+      <button class="buy-btn btn-outline" bindtap="handlePay" data-tier="1299">尊享定制</button>
+    </view>
+
+  </view>
+</view>

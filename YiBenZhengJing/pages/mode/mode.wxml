@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="header">
+    <text class="title">为回忆录注入“灵魂”</text>
+    <text class="subtitle">AI 将深度模仿您选择的名家文风进行写作</text>
+  </view>
+
+  <view class="style-list">
+    <view 
+      wx:for="{{styleOptions}}" 
+      wx:key="id"
+      class="style-card {{selectedStyle === item.title ? 'active' : ''}}"
+      bindtap="selectStyle"
+      data-title="{{item.title}}"
+    >
+      <text class="icon">{{item.icon}}</text>
+      <view class="info">
+        <text class="name">{{item.title}}</text>
+        <text class="desc">{{item.desc}}</text>
+      </view>
+      <!-- 选中状态的打勾图标 -->
+      <view class="check-mark" wx:if="{{selectedStyle === item.title}}">✓</view>
+    </view>
+  </view>
+
+  <button class="start-btn {{selectedStyle ? '' : 'disabled'}}" bindtap="finishSetup">
+    开启回忆之旅
+  </button>
+</view>

@@ -1,0 +1,94 @@
+<view class="page-container">
+  
+  <view class="header-bar">
+    <text class="page-title">发现故事</text>
+  </view>
+
+  <!-- 殿堂级大师体验区 (点击作为筛选器) -->
+  <view class="section">
+    <view class="section-header">
+      <text class="section-title">殿堂级大师体验</text>
+      <text class="section-subtitle">AI 深度还原名家笔触 (点击筛选)</text>
+    </view>
+    
+    <scroll-view class="master-scroll" scroll-x="true" show-scrollbar="false" enhanced="true">
+      <view class="master-list">
+        <!-- 注意新增了 active-master 动态类名 -->
+        <view class="master-card card-luxun {{activeMaster === 'luxun' ? 'active-master' : ''}}" bindtap="filterByMaster" data-id="luxun">
+          <view class="master-icon">🖋️</view>
+          <view class="master-name">鲁迅风</view>
+          <view class="master-desc">深沉厚重，直指人心</view>
+        </view>
+        <view class="master-card card-yangjiang {{activeMaster === 'yangjiang' ? 'active-master' : ''}}" bindtap="filterByMaster" data-id="yangjiang">
+          <view class="master-icon">🍵</view>
+          <view class="master-name">杨绛风</view>
+          <view class="master-desc">温婉细腻，娓娓道来</view>
+        </view>
+        <view class="master-card card-jixianlin {{activeMaster === 'jixianlin' ? 'active-master' : ''}}" bindtap="filterByMaster" data-id="jixianlin">
+          <view class="master-icon">📜</view>
+          <view class="master-name">季羡林风</view>
+          <view class="master-desc">平实豁达，看透世事</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 社区回忆录瀑布流 -->
+  <view class="section community-section">
+    <view class="section-header">
+      <text class="section-title">{{activeMaster ? '同款文风作品' : '大家的回忆录'}}</text>
+    </view>
+
+    <view class="feed-list">
+      
+      <!-- 🌟 置顶的名家代表作 (默认渲染3个，点击筛选后只渲染1个) -->
+      <view class="feed-card pinned-card" wx:for="{{pinnedWorks}}" wx:key="id" bindtap="readBook" data-id="{{item.id}}">
+        <view class="pinned-badge">📌 大师置顶范本</view>
+        <view class="feed-cover cover-elder">
+          <text class="cover-emoji">👑</text>
+        </view>
+        <view class="feed-info">
+          <view class="feed-title">{{item.title}}</view>
+          <view class="feed-excerpt">“{{item.excerpt}}”</view>
+          <view class="feed-meta">
+            <view class="feed-author">
+              <view class="author-avatar master-avatar">名</view>
+              <text>{{item.authorName}}</text>
+            </view>
+            <view class="feed-stats">
+              <text class="stat-icon">👀</text> <text>{{item.reads}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 普通 UGC 瀑布流 -->
+      <view class="feed-card" wx:for="{{displayBooks}}" wx:key="id" bindtap="readBook" data-id="{{item.id}}">
+        <view class="feed-cover {{item.target === 'elder' ? 'cover-elder' : 'cover-youth'}}">
+          <text class="cover-emoji">{{item.target === 'elder' ? '👴' : '🎓'}}</text>
+        </view>
+        <view class="feed-info">
+          <view class="feed-title">{{item.title}}</view>
+          <view class="feed-excerpt">“{{item.excerpt}}”</view>
+          <view class="feed-meta">
+            <view class="feed-author">
+              <view class="author-avatar">{{item.authorName[0]}}</view>
+              <text>{{item.authorName}}</text>
+            </view>
+            <view class="feed-stats">
+              <text class="stat-icon">👀</text> <text>{{item.reads}}</text>
+              <text class="stat-icon" style="margin-left: 16rpx;">❤️</text> <text>{{item.likes}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 空状态 -->
+      <view class="empty-state" wx:if="{{displayBooks.length === 0}}">
+        <text>暂无该风格的公开作品，您来做第一个吧！</text>
+      </view>
+
+    </view>
+  </view>
+  
+</view>

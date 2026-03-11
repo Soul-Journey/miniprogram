@@ -1,0 +1,31 @@
+page { background-color: #f7f9fc; padding-bottom: 60rpx; }
+.container { width: 100%; }
+
+.header-banner { background: linear-gradient(135deg, #111827, #374151); padding: 60rpx 40rpx; text-align: center; border-bottom-left-radius: 40rpx; border-bottom-right-radius: 40rpx; margin-bottom: 60rpx;}
+.banner-title { display: block; font-size: 44rpx; font-weight: bold; color: #fff; margin-bottom: 12rpx; letter-spacing: 2rpx;}
+.banner-sub { font-size: 26rpx; color: #9ca3af; }
+
+.pricing-list { padding: 0 40rpx; display: flex; flex-direction: column; gap: 40rpx; }
+
+.pricing-card { background: #fff; border-radius: 30rpx; padding: 40rpx; position: relative; box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.03); border: 4rpx solid transparent; }
+.pricing-card.recommend { border-color: #f59e0b; box-shadow: 0 10rpx 30rpx rgba(245, 158, 11, 0.15); }
+.recommend-badge { position: absolute; top: -20rpx; right: 40rpx; background: linear-gradient(90deg, #ea580c, #f59e0b); color: white; padding: 8rpx 24rpx; border-radius: 100rpx; font-size: 24rpx; font-weight: bold; box-shadow: 0 4rpx 10rpx rgba(234, 88, 12, 0.3); }
+
+.card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40rpx; padding-bottom: 30rpx; border-bottom: 2rpx dashed #f3f4f6;}
+.tier-info { display: flex; flex-direction: column; }
+.tier-name { font-size: 36rpx; font-weight: 800; color: #1f2937; margin-bottom: 8rpx; }
+.tier-desc { font-size: 24rpx; color: #6b7280; }
+.text-amber { color: #d97706; }
+
+.price { display: flex; align-items: baseline; color: #111827; }
+.currency { font-size: 32rpx; font-weight: bold; margin-right: 4rpx; }
+.amount { font-size: 64rpx; font-weight: 900; }
+
+.features { display: flex; flex-direction: column; gap: 20rpx; margin-bottom: 40rpx; }
+.feature-item { font-size: 28rpx; color: #4b5563; }
+
+.buy-btn { width: 100% !important; border-radius: 100rpx; font-size: 32rpx; font-weight: bold; padding: 24rpx 0; }
+.btn-primary { background: linear-gradient(90deg, #f59e0b, #ea580c); color: white; box-shadow: 0 8rpx 20rpx rgba(245, 158, 11, 0.3); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-outline { background: #fff; color: #374151; border: 2rpx solid #e5e7eb; }
+.btn-outline:active { background: #f9fafb; }

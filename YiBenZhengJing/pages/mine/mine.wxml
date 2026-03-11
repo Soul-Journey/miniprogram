@@ -1,0 +1,20 @@
+<view class="mine-container">
+  <view class="user-header">
+    <image class="avatar" src="/assets/icons/default-avatar.png" mode="aspectFill"></image>
+    <view class="user-info">
+      <view class="nickname">{{authorName}}</view>
+      <view class="uid">账号 ID: YB8848123</view>
+    </view>
+  </view>
+  <view class="menu-list">
+    <view class="menu-item"><text class="menu-icon">📦</text><text class="menu-text">我的订单</text><text class="arrow">></text></view>
+    <view class="menu-item"><text class="menu-icon">📍</text><text class="menu-text">收货地址</text><text class="arrow">></text></view>
+    <view class="divider"></view>
+    <view class="menu-item" bindtap="switchMode"><text class="menu-icon">🔄</text><text class="menu-text">切换回忆模式</text><text class="arrow">></text></view>
+    <view class="menu-item">
+      <button class="contact-btn" open-type="contact">
+        <text class="menu-icon">🎧</text><text class="menu-text">联系专属客服</text><text class="arrow">></text>
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,79 @@
+page { background-color: #F7F8FA; }
+.page-container { min-height: 100vh; padding-bottom: 40rpx; }
+
+/* 顶部标题栏 */
+.header-bar { padding: 40rpx 40rpx 20rpx 40rpx; background: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.02); }
+.page-title { font-size: 44rpx; font-weight: 800; color: #111827; letter-spacing: 2rpx; }
+
+.section { margin-top: 40rpx; }
+.section-header { padding: 0 40rpx; margin-bottom: 24rpx; display: flex; flex-direction: column; }
+.section-title { font-size: 34rpx; font-weight: 800; color: #1F2937; margin-bottom: 8rpx; }
+.section-subtitle { font-size: 24rpx; color: #9CA3AF; }
+
+/* 大师横向滚动区 */
+.master-scroll { width: 100%; white-space: nowrap; padding-bottom: 20rpx; }
+.master-list { display: inline-flex; padding: 0 40rpx; gap: 24rpx; }
+.master-card { width: 260rpx; height: 320rpx; border-radius: 30rpx; padding: 30rpx; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8rpx 24rpx rgba(0,0,0,0.06); transition: transform 0.2s; display: inline-flex;}
+.master-card:active { transform: scale(0.96); }
+
+/* 大师卡片专属配色 */
+.card-luxun { background: linear-gradient(135deg, #4B5563, #1F2937); color: white; }
+.card-yangjiang { background: linear-gradient(135deg, #FEF3C7, #FDE68A); color: #92400E; }
+.card-jixianlin { background: linear-gradient(135deg, #F3F4F6, #E5E7EB); color: #374151; }
+
+.master-icon { font-size: 60rpx; background: rgba(255,255,255,0.2); width: 90rpx; height: 90rpx; border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);}
+.master-name { font-size: 32rpx; font-weight: bold; margin-top: auto; margin-bottom: 8rpx; }
+.master-desc { font-size: 22rpx; opacity: 0.8; white-space: normal; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* 社区信息流 */
+.community-section { padding: 0 40rpx; }
+.feed-list { display: flex; flex-direction: column; gap: 30rpx; }
+.feed-card { background: #fff; border-radius: 30rpx; padding: 30rpx; display: flex; box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.03); transition: all 0.2s; }
+.feed-card:active { transform: scale(0.98); background: #fafafa; }
+
+/* 封面设计 */
+.feed-cover { width: 140rpx; height: 180rpx; border-radius: 16rpx; display: flex; justify-content: center; align-items: center; font-size: 60rpx; margin-right: 30rpx; flex-shrink: 0; box-shadow: 4rpx 4rpx 12rpx rgba(0,0,0,0.05); position: relative;}
+.feed-cover::before { content: ''; position: absolute; left: 8rpx; top: 0; bottom: 0; width: 4rpx; background: rgba(0,0,0,0.1); }
+.cover-elder { background: linear-gradient(135deg, #FEF3C7, #FDE68A); }
+.cover-youth { background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+
+/* 内容区 */
+.feed-info { flex: 1; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;}
+.feed-title { font-size: 32rpx; font-weight: bold; color: #111827; margin-bottom: 12rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.feed-excerpt { font-size: 26rpx; color: #6B7280; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 16rpx; }
+
+.feed-meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.feed-author { display: flex; align-items: center; font-size: 24rpx; color: #4B5563; font-weight: 500;}
+.author-avatar { width: 40rpx; height: 40rpx; background: #E5E7EB; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 12rpx; font-size: 20rpx; font-weight: bold; color: #4B5563;}
+.feed-stats { font-size: 22rpx; color: #9CA3AF; display: flex; align-items: center;}
+.stat-icon { font-size: 24rpx; margin-right: 4rpx; }
+/* --- 筛选器选中状态 --- */
+.active-master {
+  transform: scale(0.96);
+  border: 6rpx solid #f59e0b;
+  box-shadow: 0 0 20rpx rgba(245, 158, 11, 0.4);
+}
+
+/* --- 置顶代表作卡片 --- */
+.pinned-card {
+  position: relative;
+  background: linear-gradient(to right, #fffbeb, #ffffff);
+  border: 2rpx solid #fde68a;
+}
+.pinned-badge {
+  position: absolute;
+  top: -16rpx;
+  right: -16rpx;
+  background: #ea580c;
+  color: white;
+  font-size: 20rpx;
+  font-weight: bold;
+  padding: 6rpx 16rpx;
+  border-radius: 100rpx;
+  box-shadow: 0 4rpx 10rpx rgba(234, 88, 12, 0.3);
+  z-index: 10;
+}
+.master-avatar { background: #ea580c; color: white; }
+
+/* 缺省空状态 */
+.empty-state { text-align: center; color: #a1a1aa; font-size: 26rpx; padding: 60rpx 0; }

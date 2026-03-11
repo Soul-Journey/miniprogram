@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="header">
+    <text class="title">{{isOldUser ? '开启新篇章 📖' : '欢迎来到忆本正经 👋'}}</text>
+    <text class="subtitle">{{isOldUser ? '这次想为谁制作回忆录呢？' : '花一分钟，让我们更懂你'}}</text>
+  </view>
+
+  <!-- 第一步：基本信息收集 (如果不是老用户则显示) -->
+  <view class="form-group" wx:if="{{!isOldUser}}">
+    <text class="label">第一步：让我们认识一下</text>
+    
+    <view class="input-card">
+      <view class="input-row border-bottom">
+        <text class="row-label">怎么称呼</text>
+        <input class="row-input" placeholder="输入主人公的姓名或称呼" placeholder-class="ph-color" bindinput="handleNameInput" value="{{authorName}}" />
+      </view>
+
+      <view class="input-row border-bottom">
+        <text class="row-label">性别</text>
+        <view class="gender-options">
+          <view class="gender-btn {{authorGender === '男' ? 'active-male' : ''}}" bindtap="selectGender" data-gender="男">
+            <text class="gender-icon">👨</text> 男
+          </view>
+          <view class="gender-btn {{authorGender === '女' ? 'active-female' : ''}}" bindtap="selectGender" data-gender="女">
+            <text class="gender-icon">👩</text> 女
+          </view>
+        </view>
+      </view>
+
+      <view class="input-row">
+        <text class="row-label">年龄</text>
+        <!-- type="number" 调起数字键盘 -->
+        <input class="row-input age-input" type="number" placeholder="输入数字年龄" placeholder-class="ph-color" bindinput="handleAgeInput" value="{{authorAge}}" />
+        <text class="unit">岁</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 第二步：选择目标受众 -->
+  <view class="form-group">
+    <text class="label">{{isOldUser ? '第一步：' : '第二步：'}}你想为什么时期的自己/他人制作？</text>
+    <view class="card-list">
+      <view class="card {{currentTarget === 'elder' ? 'active' : ''}}" bindtap="selectTarget" data-target="elder">
+        <text class="card-emoji">👴👵</text>
+        <view class="card-info">
+          <text class="card-title">送给父母/长辈</text>
+          <text class="card-desc">语音问答，温情记录一生</text>
+        </view>
+      </view>
+
+      <view class="card {{currentTarget === 'youth' ? 'active' : ''}}" bindtap="selectTarget" data-target="youth">
+        <text class="card-emoji">🎓✨</text>
+        <view class="card-info">
+          <text class="card-title">致敬青春/友谊</text>
+          <text class="card-desc">沙雕网感，一键生成纪念册</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button class="next-btn {{(authorName || isOldUser) && currentTarget && (isOldUser || (authorGender && authorAge)) ? '' : 'disabled'}}" bindtap="handleNext">
+    下一步，选择文风
+  </button>
+</view>
